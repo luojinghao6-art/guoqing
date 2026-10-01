@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>我爱你中国 · 国庆主题动态贺卡 ｜ 代码书锦绣 · 指尖颂家国</title>
+<meta name="description" content="用 HTML/CSS/JS 创作的国庆主题动态贺卡：国标几何五星红旗、点阵汇聚的中国地图、粒子烟花，支持点击放烟花交互。">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 舞台：所有动画都画在这块画布上 -->
+<canvas id="stage" aria-label="国庆主题动画舞台"></canvas>
+
+<!-- 开场遮罩：给用户一个"开启贺卡"的仪式感 -->
+<div id="gate" class="gate">
+  <div class="gate__inner">
+    <div class="gate__star">★</div>
+    <h1 class="gate__title">我爱你中国</h1>
+    <p class="gate__sub">庆祝中华人民共和国成立 <b>77</b> 周年</p>
+    <button id="gateBtn" class="gate__btn" type="button">
+      <span>开启贺卡</span>
+    </button>
+    <p class="gate__tip">提示：进入后可 <b>点击画面</b> 放一朵烟花</p>
+  </div>
+</div>
+
+<!-- 控制条 -->
+<div id="hud" class="hud">
+  <button class="hud__btn" id="btnPlay" type="button" title="播放 / 暂停 (空格)">⏸</button>
+  <button class="hud__btn" id="btnReplay" type="button" title="重播 (R)">↻</button>
+  <button class="hud__btn" id="btnGrid" type="button" title="显示国标网格 (G)">▦</button>
+  <button class="hud__btn" id="btnFull" type="button" title="全屏 (F)">⛶</button>
+  <div class="hud__scenes" id="scenes"></div>
+  <div class="hud__bar"><i id="progress"></i></div>
+</div>
+
+<!-- 屏幕上的祝福语 / 说明文字（HTML 排版，比 canvas 更清晰、可选中） -->
+<div id="caption" class="caption" aria-live="polite"></div>
+
+<footer class="foot">
+  <span>代码书锦绣 · 指尖颂家国</span>
+  <span class="foot__sep">|</span>
+  <span>HTML / CSS / Canvas 纯手写，无第三方库</span>
+</footer>
+
+<noscript><p class="noscript">本作品需要启用 JavaScript 才能观看。</p></noscript>
+
+<script src="data/china-map.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/flag.js"></script>
+<script src="js/landmark.js"></script>
+<script src="js/map.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
